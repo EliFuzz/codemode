@@ -1,3 +1,3 @@
 # CodeMode
 
-Anthropic's & CloudFlare's CodeMode MCP Implementation
+Anthropic's & CloudFlare's CodeMode MCP Implementation.
