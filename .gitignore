@@ -2,8 +2,8 @@
 .vscode/
 
 # Node modules
-node_modules/
-.build/
+node_modules
+build
 
 # Logs
 logs/

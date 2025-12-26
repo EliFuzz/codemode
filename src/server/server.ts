@@ -7,7 +7,7 @@ import {
   CallToolResultSchema,
   ListToolsResultSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { readdir } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Server, Servers } from 'src/server/client';
@@ -34,7 +34,10 @@ export const getServer = () => server!;
 export const getToolRegistry = () => toolRegistry;
 
 export const init = async () => {
-  await getAllServerTools(JSON.parse(process.env.CODEMODE_SERVERS || '{}'));
+  const servers = JSON.parse(
+    (await readFile(process.env.CODEMODE_SERVERS || '', 'utf8')) || '{}'
+  );
+  await getAllServerTools(servers);
   server = new McpServer({ name: 'codemode', version: '1.0.0' });
   await registerTools();
   await server.connect(new StdioServerTransport());
