@@ -50,7 +50,9 @@ const registerTools = async (): Promise<void> => {
       '../tools'
     );
     const toolFiles = (await readdir(toolsDir)).filter(
-      (file: string) => file.endsWith('.js') || file.endsWith('.ts')
+      (file: string) =>
+        file.endsWith('.js') ||
+        (file.endsWith('.ts') && !file.endsWith('.d.ts'))
     );
     for (const file of toolFiles) {
       await import(path.join(toolsDir, file));
