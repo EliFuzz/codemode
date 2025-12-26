@@ -1,6 +1,6 @@
 {
   "name": "codemode-mcp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Code Mode MCP server - Execute TypeScript code with access to all registered MCP server tools",
   "homepage": "https://github.com/EliFuzz/codemode#readme",
   "repository": {
